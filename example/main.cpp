@@ -26,7 +26,7 @@ int main()
 	sf::Text objectCountText;
 	sf::Font font;
 
-	font.loadFromFile("./PT-Sans/PTC55F.ttf");
+	font.loadFromFile("Release/PT-Sans/PTC55F.ttf");
 	fpsText.setFont(font);
 	objectCountText.setFont(font);
 
