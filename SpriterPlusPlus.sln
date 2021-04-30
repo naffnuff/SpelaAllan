@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpriterPlusPlus", "SpriterPlusPlus.vcxproj", "{EC902F13-1E54-4DD0-A887-0A3A5BC1CC29}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpelaAllan", "SpelaAllan\SpelaAllan.vcxproj", "{C53EA449-B3C8-413E-B4E2-06E18853C38C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC902F13-1E54-4DD0-A887-0A3A5BC1CC29} = {EC902F13-1E54-4DD0-A887-0A3A5BC1CC29}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +26,19 @@ Global
 		{EC902F13-1E54-4DD0-A887-0A3A5BC1CC29}.Release|x64.Build.0 = Release|x64
 		{EC902F13-1E54-4DD0-A887-0A3A5BC1CC29}.Release|x86.ActiveCfg = Release|Win32
 		{EC902F13-1E54-4DD0-A887-0A3A5BC1CC29}.Release|x86.Build.0 = Release|Win32
+		{C53EA449-B3C8-413E-B4E2-06E18853C38C}.Debug|x64.ActiveCfg = Debug|x64
+		{C53EA449-B3C8-413E-B4E2-06E18853C38C}.Debug|x64.Build.0 = Debug|x64
+		{C53EA449-B3C8-413E-B4E2-06E18853C38C}.Debug|x86.ActiveCfg = Debug|Win32
+		{C53EA449-B3C8-413E-B4E2-06E18853C38C}.Debug|x86.Build.0 = Debug|Win32
+		{C53EA449-B3C8-413E-B4E2-06E18853C38C}.Release|x64.ActiveCfg = Release|x64
+		{C53EA449-B3C8-413E-B4E2-06E18853C38C}.Release|x64.Build.0 = Release|x64
+		{C53EA449-B3C8-413E-B4E2-06E18853C38C}.Release|x86.ActiveCfg = Release|Win32
+		{C53EA449-B3C8-413E-B4E2-06E18853C38C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C48943DF-62F3-453A-9E92-B6B231D0523A}
 	EndGlobalSection
 EndGlobal
