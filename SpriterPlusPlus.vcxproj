@@ -22,32 +22,32 @@
     <ProjectGuid>{EC902F13-1E54-4DD0-A887-0A3A5BC1CC29}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SpriterPlusPlus</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -71,15 +71,20 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -88,7 +93,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\SFML-2.3.2\include%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>nlohmann-json;$(ProjectDir)\SFML-2.3.2\include%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -96,6 +101,9 @@
       <AdditionalLibraryDirectories>$(ProjectDir)\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "SFML-2.3.2\bin\*.dll" "$(TargetDir)" /D /K /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -104,11 +112,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>nlohmann-json;SFML-2.3.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-main-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -120,7 +130,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\SFML-2.3.2\include%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>nlohmann-json;$(ProjectDir)\SFML-2.3.2\include%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +141,9 @@
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>true</Profile>
     </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "SFML-2.3.2\bin\*.dll" "$(TargetDir)" /D /K /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -141,7 +154,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>nlohmann-json;SFML-2.3.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,9 +169,13 @@
     <ClCompile Include="example\main.cpp" />
     <ClCompile Include="example\override\examplefilefactory.cpp" />
     <ClCompile Include="example\override\exampleobjectfactory.cpp" />
+    <ClCompile Include="example\override\jsonspriterfileattributewrapper.cpp" />
+    <ClCompile Include="example\override\jsonspriterfiledocumentwrapper.cpp" />
+    <ClCompile Include="example\override\jsonspriterfileelementwrapper.cpp" />
     <ClCompile Include="example\override\pugixmlspriterfileattributewrapper.cpp" />
     <ClCompile Include="example\override\pugixmlspriterfiledocumentwrapper.cpp" />
     <ClCompile Include="example\override\pugixmlspriterfileelementwrapper.cpp" />
+    <ClCompile Include="example\override\sfmlatlasfile.cpp" />
     <ClCompile Include="example\override\sfmlboneinstanceinfo.cpp" />
     <ClCompile Include="example\override\sfmlboxinstanceinfo.cpp" />
     <ClCompile Include="example\override\sfmlimagefile.cpp" />
@@ -214,6 +231,7 @@
     <ClCompile Include="spriterengine\objectref\spriterefinstance.cpp" />
     <ClCompile Include="spriterengine\objectref\spriteref.cpp" />
     <ClCompile Include="spriterengine\objectref\transformprocessor.cpp" />
+    <ClCompile Include="spriterengine\override\atlasfile.cpp" />
     <ClCompile Include="spriterengine\override\filefactory.cpp" />
     <ClCompile Include="spriterengine\override\imagefile.cpp" />
     <ClCompile Include="spriterengine\override\objectfactory.cpp" />
@@ -247,9 +265,13 @@
   <ItemGroup>
     <ClInclude Include="example\override\examplefilefactory.h" />
     <ClInclude Include="example\override\exampleobjectfactory.h" />
+    <ClInclude Include="example\override\jsonspriterfileattributewrapper.h" />
+    <ClInclude Include="example\override\jsonspriterfiledocumentwrapper.h" />
+    <ClInclude Include="example\override\jsonspriterfileelementwrapper.h" />
     <ClInclude Include="example\override\pugixmlspriterfileattributewrapper.h" />
     <ClInclude Include="example\override\pugixmlspriterfiledocumentwrapper.h" />
     <ClInclude Include="example\override\pugixmlspriterfileelementwrapper.h" />
+    <ClInclude Include="example\override\sfmlatlasfile.h" />
     <ClInclude Include="example\override\sfmlboneinstanceinfo.h" />
     <ClInclude Include="example\override\sfmlboxinstanceinfo.h" />
     <ClInclude Include="example\override\sfmlimagefile.h" />
@@ -308,6 +330,7 @@
     <ClInclude Include="spriterengine\objectref\spriterefinstance.h" />
     <ClInclude Include="spriterengine\objectref\spriteref.h" />
     <ClInclude Include="spriterengine\objectref\transformprocessor.h" />
+    <ClInclude Include="spriterengine\override\atlasfile.h" />
     <ClInclude Include="spriterengine\override\filefactory.h" />
     <ClInclude Include="spriterengine\override\imagefile.h" />
     <ClInclude Include="spriterengine\override\objectfactory.h" />
